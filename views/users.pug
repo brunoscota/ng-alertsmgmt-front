@@ -1,0 +1,71 @@
+extends layout
+block append content
+      .container-fluid
+        .row
+          .col-md-8
+            .card
+              .card-header.card-header-primary
+                h4.card-title Edit Profile
+                p.card-category Complete your profile
+              .card-body
+                form
+                  .row
+                    .col-md-5
+                      .form-group
+                        label.bmd-label-floating Company (disabled)
+                        input.form-control(type='text' disabled='')
+                    .col-md-3
+                      .form-group
+                        label.bmd-label-floating Username
+                        input.form-control(type='text')
+                    .col-md-4
+                      .form-group
+                        label.bmd-label-floating Email address
+                        input.form-control(type='email')
+                  .row
+                    .col-md-6
+                      .form-group
+                        label.bmd-label-floating Fist Name
+                        input.form-control(type='text')
+                    .col-md-6
+                      .form-group
+                        label.bmd-label-floating Last Name
+                        input.form-control(type='text')
+                  .row
+                    .col-md-12
+                      .form-group
+                        label.bmd-label-floating Adress
+                        input.form-control(type='text')
+                  .row
+                    .col-md-4
+                      .form-group
+                        label.bmd-label-floating City
+                        input.form-control(type='text')
+                    .col-md-4
+                      .form-group
+                        label.bmd-label-floating Country
+                        input.form-control(type='text')
+                    .col-md-4
+                      .form-group
+                        label.bmd-label-floating Postal Code
+                        input.form-control(type='text')
+                  .row
+                    .col-md-12
+                      .form-group
+                        label About Me
+                        .form-group
+                          label.bmd-label-floating  Lamborghini Mercy, Your chick she so thirsty, I&apos;m in that two seat Lambo.
+                          textarea.form-control(rows='5')
+                  button.btn.btn-primary.pull-right(type='submit') Update Profile
+                  .clearfix
+          .col-md-4
+            .card.card-profile
+              .card-avatar
+                a(href='#pablo')
+                  img.img(src='../assets/img/faces/marc.jpg')
+              .card-body
+                h6.card-category.text-gray CEO / Co-Founder
+                h4.card-title Alec Thompson
+                p.card-description
+                  | Don&apos;t be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens&rsquo; bed design but the back is...
+                a.btn.btn-primary.btn-round(href='#pablo') Follow

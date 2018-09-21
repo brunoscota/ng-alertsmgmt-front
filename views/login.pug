@@ -1,0 +1,186 @@
+doctype html
+head#j_idt2
+  link(type='text/css' rel='stylesheet' href='javax.faces.resource/theme.css34d8.css?ln=primefaces-black-tie&v=1.0')
+  script(type='text/javascript' src='javax.faces.resource/jquery/jquery.js.xhtml%3bjsessionid%3d4mD4XbFhXoS-YtvoyYzlCcPQgOABXzM9DeeuQYrMef2f.sai?ln=primefaces&v=6.0.15')
+  script(type='text/javascript' src='javax.faces.resource/jquery/jquery-plugins.js.xhtml%3bjsessionid%3d4mD4XbFhXoS-YtvoyYzlCcPQgOABXzM9DeeuQYrMef2f.sai?ln=primefaces&v=6.0.15')
+  script(type='text/javascript' src='javax.faces.resource/core.js.xhtml%3bjsessionid%3d4mD4XbFhXoS-YtvoyYzlCcPQgOABXzM9DeeuQYrMef2f.sai?ln=primefaces&v=6.0.15')
+  link(type='text/css' rel='stylesheet' href='javax.faces.resource/components.css.xhtml%3bjsessionid%3d4mD4XbFhXoS-YtvoyYzlCcPQgOABXzM9DeeuQYrMef2f.css?ln=primefaces&v=6.0.15')
+  script(type='text/javascript' src='javax.faces.resource/components.js.xhtml%3bjsessionid%3d4mD4XbFhXoS-YtvoyYzlCcPQgOABXzM9DeeuQYrMef2f.sai?ln=primefaces&v=6.0.15')
+  script(type='text/javascript' src='javax.faces.resource/hotkey/hotkey.js.xhtml%3bjsessionid%3d4mD4XbFhXoS-YtvoyYzlCcPQgOABXzM9DeeuQYrMef2f.sai?ln=primefaces&v=6.0.15')
+  script(type='text/javascript').
+    if(window.PrimeFaces){PrimeFaces.settings.locale='en';}
+  title NG-BounceMailHandler - LOGIN
+  script(type='text/javascript' language='JavaScript' src='scripts/jsLib/primefaces-locales.js')
+  script(type='text/javascript' language='JavaScript' src='scripts/jsLib/css3-mediaqueries.js')
+  script(type='text/javascript' language='JavaScript' src='scripts/jsLib/jsf.js')
+  link(rel='stylesheet' type='text/css' href='estilos/loginJSF.css')
+
+body(style='background-image:url(imagens/neogrid_login.jpg)')
+
+#modalTransicao.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-shadow.ui-hidden-container(style='width:240px;')
+  .ui-dialog-titlebar.ui-widget-header.ui-helper-clearfix.ui-corner-top
+    span#modalTransicao_title.ui-dialog-title
+  .ui-dialog-content.ui-widget-content
+    div
+      img(src='imagens/logoxplan_transicao_NG.png')
+    div(style='text-align: center;border: none;')
+      span#processando.output_transicao Processando Dados no Servidor...
+    div(style='text-align:center;')
+      img(src='imagens/loading_bar.gif')
+script#modalTransicao_s(type='text/javascript').
+  $(function(){PrimeFaces.cw("Dialog","statusDialog",{id:"modalTransicao",draggable:false,resizable:false,modal:true});});
+#topo.ui-panel.ui-widget.ui-widget-content.ui-corner-all.topo(data-widget='widget_topo')
+  #topo_content.ui-panel-content.ui-widget-content
+script#topo_s(type='text/javascript').
+  PrimeFaces.cw("Panel","widget_topo",{id:"topo"});
+img#logo.imagem_logo(src='imagens/logo_NG.png' alt='')
+form#formLogin(name='formLogin' method='post' action='https://planning-giassi.neogrid.com/planning/login.xhtml;jsessionid=4mD4XbFhXoS-YtvoyYzlCcPQgOABXzM9DeeuQYrM.sai' enctype='application/x-www-form-urlencoded')
+  input(type='hidden' name='formLogin' value='formLogin')
+  script#j_idt12_s(type='text/javascript').
+    $(function(){PrimeFaces.cw("Poll","widget_j_idt12",{id:"j_idt12",frequency:200,autoStart:true,fn:function(){PrimeFaces.ab({s:"j_idt12",f:"formLogin",p:"j_idt12",u:"j_idt12"});}});});
+  script(type='text/javascript').
+    $(function() {$(document).bind('keydown', 'return', function(){PrimeFaces.ab({s:"j_idt13",f:"formLogin",g:false,onst:function(cfg){$('#btnEntrar').click();;}});;return false;});});
+  span#growlMensagens
+  script#growlMensagens_s(type='text/javascript').
+    $(function(){PrimeFaces.cw('Growl','widget_growlMensagens',{id:'growlMensagens',sticky:true,life:6000,escape:true,msgs:[]});});
+  #pnlExterno.ui-panel.ui-widget.ui-widget-content.ui-corner-all(style='background:none !important;border:none !important; margin-left:-0.6%;margin-right:-0.6%;' data-widget='widget_pnlExterno')
+    #pnlExterno_content.ui-panel-content.ui-widget-content
+      #pnlSuporteOver.ui-overlaypanel.ui-widget.ui-widget-content.ui-overlay-hidden.ui-corner-all.ui-shadow.overlayPanel
+        .ui-overlaypanel-content
+          table#pnlGridSuporte(style='margin-left:20px;' width='300')
+            tbody
+              tr
+                td.coluna
+                  img#j_idt14(src='imagens/resolucao.png' alt='' width='50')
+                td
+                  label#j_idt15.ui-outputlabel.ui-widget.texto_suporte
+                    strong Resolu&ccedil;&atilde;o de v&iacute;deo
+                    br
+                    br
+                    div  1280 x 768 ou superior
+              tr
+                td.coluna
+                  img#j_idt16(src='imagens/navegador.png' alt='' width='40' style='position:relative;left:5px')
+                td
+                  label#j_idt17.ui-outputlabel.ui-widget.texto_suporte
+                    strong Navegadores
+                    br
+                    br
+                    div  IE 11, Edge, Chrome 49+, FF 45+
+              tr
+                td.coluna
+                  img#j_idt18(src='imagens/atende-suporte.png' alt='' width='40' style='position:relative;left:5px;')
+                td
+                  span(style='margin-left:20px;')
+                    label#j_idt20.ui-outputlabel.ui-widget.texto_suporte Qualquer problema, por favor informe o ocorrido pelo link:
+                    br
+                    a.texto(href='http://portal.neogrid.com/' style='color:#333399 !important; ')
+                      label Suporte ao Cliente
+      script#pnlSuporteOver_s(type='text/javascript').
+        $(function(){PrimeFaces.cw("OverlayPanel","widget_pnlSuporteOver",{id:"pnlSuporteOver",target:"pnlSuporte"});});
+      #panelFora.ui-panel.ui-widget.ui-widget-content.ui-corner-all.panel_fora(data-widget='widget_panelFora')
+        #panelFora_content.ui-panel-content.ui-widget-content
+          #panelLogin.ui-panel.ui-widget.ui-widget-content.ui-corner-all.panel_login.panel_default(data-widget='widget_panelLogin')
+            #panelLogin_content.ui-panel-content.ui-widget-content
+              span#j_idt24
+              script(type='text/javascript').
+                $(function(){PrimeFaces.focus(null, 'panelLogin');});
+              label#j_idt25.ui-outputlabel.ui-widget.texto_boas_vindas(style='margin-left:9%;')
+                | Welcome to 
+                strong BounceMailHandler
+              br
+              #j_idt31.ui-panel.ui-widget.ui-widget-content.ui-corner-all.panel_default(data-widget='widget_j_idt31')
+                #j_idt31_content.ui-panel-content.ui-widget-content
+                  img#j_idt32(height='30px' alt='' src='javax.faces.resource/spacer/dot_clear.gifef2f.gif?ln=primefaces&v=6.0.15')
+              script#j_idt31_s(type='text/javascript').
+                PrimeFaces.cw("Panel","widget_j_idt31",{id:"j_idt31"});
+              label#lblLogin.ui-outputlabel.ui-widget.texto(for='txtLogin')
+                | Login
+                span.ui-outputlabel-rfi *
+              br
+              input#txtLogin.ui-inputfield.ui-inputtext.ui-widget.ui-state-default.ui-corner-all.caixa_texto(name='txtLogin' type='text' maxlength='50' placeholder='Username' tabindex='1' aria-required='true')
+              script#txtLogin_s(type='text/javascript').
+                PrimeFaces.cw("InputText","widget_txtLogin",{id:"txtLogin"});
+              br
+              label#lblSenha.ui-outputlabel.ui-widget.texto(for='txtSenha')
+                | Password
+                span.ui-outputlabel-rfi *
+              br
+              input#txtSenhaOculto.ui-inputfield.ui-password.ui-widget.ui-state-default.ui-corner-all(name='txtSenhaOculto' type='password' style='position:absolute;top:-200%' tabindex='99')
+              script#txtSenhaOculto_s(type='text/javascript').
+                $(function(){PrimeFaces.cw("Password","widget_txtSenhaOculto",{id:"txtSenhaOculto"});});
+              input#txtSenha.ui-inputfield.ui-password.ui-widget.ui-state-default.ui-corner-all.caixa_texto(name='txtSenha' type='password' maxlength='50' placeholder='Password' tabindex='2' aria-required='true')
+              script#txtSenha_s(type='text/javascript').
+                $(function(){PrimeFaces.cw("Password","widget_txtSenha",{id:"txtSenha"});});
+              table#panelGrid_01(cellpadding='0' style='margin:0;padding:0;border-spacing:0;width:100%;')
+                tbody
+                  tr
+                    td
+                      button#btnEntrar.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-text-only.botao_login(name='btnEntrar' onclick='PrimeFaces.ab({s:"btnEntrar",e:"click",p:"formLogin",u:"formLogin",onst:function(cfg){alteraStatusRequiredClick1();;}});' tabindex='3' type='button')
+                        span.ui-button-text.ui-c Enter
+                      script#btnEntrar_s(type='text/javascript').
+                        PrimeFaces.cw("CommandButton","widget_btnEntrar",{id:"btnEntrar",behaviors:{click:function(ext,event) {PrimeFaces.ab({s:"btnEntrar",e:"click",p:"formLogin",u:"formLogin",onst:function(cfg){alteraStatusRequiredClick1();;}},ext);}}});
+                    td
+                      a#btnEsqueciMinhaSenha.ui-commandlink.ui-widget.texto(href='#' onclick='PrimeFaces.ab({s:"btnEsqueciMinhaSenha",p:"btnEsqueciMinhaSenha",u:"formLogin"});return false;' style='color:#f0000A !important;left:100px;position:relative;') Forgot my password
+              script(type='text/javascript').
+                alteraStatusRequiredClick1 = function() {PrimeFaces.ab({s:"j_idt36",f:"formLogin",p:"j_idt36",u:"j_idt36",pa:arguments[0]});}
+              script(type='text/javascript').
+                updateFormLogin = function() {PrimeFaces.ab({s:"j_idt37",f:"formLogin",p:"formLogin",u:"formLogin",pa:arguments[0]});}
+              #pnlIdiomasSuporte.ui-panel.ui-widget.ui-widget-content.ui-corner-all.panel_idiomas_suporte(style='top:210px;left:-15px;' data-widget='widget_pnlIdiomasSuporte')
+                #pnlIdiomasSuporte_content.ui-panel-content.ui-widget-content
+                  #pnlSuporte.ui-panel.ui-widget.ui-widget-content.ui-corner-all.panel_suporte(data-widget='widget_pnlSuporte')
+                    #pnlSuporte_content.ui-panel-content.ui-widget-content
+                      img#j_idt41(src='imagens/ico-suporte.png' alt='' width='30')
+                      a#btnSuporte.ui-commandlink.ui-widget.suporte(href='#' onclick='PrimeFaces.ab({s:"btnSuporte",p:"btnSuporte",u:"btnSuporte",g:false});return false;') Help
+                  script#pnlSuporte_s(type='text/javascript').
+                    PrimeFaces.cw("Panel","widget_pnlSuporte",{id:"pnlSuporte"});
+              script#pnlIdiomasSuporte_s(type='text/javascript').
+                PrimeFaces.cw("Panel","widget_pnlIdiomasSuporte",{id:"pnlIdiomasSuporte"});
+          script#panelLogin_s(type='text/javascript').
+            PrimeFaces.cw("Panel","widget_panelLogin",{id:"panelLogin"});
+      script#panelFora_s(type='text/javascript').
+        PrimeFaces.cw("Panel","widget_panelFora",{id:"panelFora"});
+      script(type='text/javascript').
+        alteraStatusRequiredClick = function() {PrimeFaces.ab({s:"j_idt52",f:"formLogin",p:"j_idt52",u:"j_idt52",pa:arguments[0]});}
+  script#pnlExterno_s(type='text/javascript').
+    PrimeFaces.cw("Panel","widget_pnlExterno",{id:"pnlExterno"});
+  #panelRodape.ui-panel.ui-widget.ui-widget-content.ui-corner-all.panel_rodape(data-widget='widget_panelRodape')
+    #panelRodape_content.ui-panel-content.ui-widget-content
+      label#j_idt55.ui-outputlabel.ui-widget.texto_rodape &copy; 2018 &bull; 
+      a#cmdNeogrid.ui-commandlink.ui-widget.texto_rodape(href='#' onclick='PrimeFaces.ab({s:"cmdNeogrid",p:"cmdNeogrid",u:"cmdNeogrid"});return false;') NEOGRID
+      label#j_idt56.ui-outputlabel.ui-widget.texto_rodape  - 
+      label#j_idt57.ui-outputlabel.ui-widget.texto_rodape All rights reserved.
+  script#panelRodape_s(type='text/javascript').
+    PrimeFaces.cw("Panel","widget_panelRodape",{id:"panelRodape"});
+  script(type='text/javascript').
+    cancelaAlteracao = function() {PrimeFaces.ab({s:"j_idt58",f:"formLogin",p:"j_idt58",u:"j_idt58",pa:arguments[0]});}
+  input(type='hidden' name='javax.faces.ViewState' id='j_id1:javax.faces.ViewState:0' value='7195824827439784456:-6030353437974035484' autocomplete='off')
+#modalConfirmaAlteracaoSenha.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-shadow.ui-hidden-container(style='background-color:#f2f2f2;')
+  .ui-dialog-titlebar.ui-widget-header.ui-helper-clearfix.ui-corner-top
+    span#modalConfirmaAlteracaoSenha_title.ui-dialog-title
+  .ui-dialog-content.ui-widget-content
+script#modalConfirmaAlteracaoSenha_s(type='text/javascript').
+  $(function(){PrimeFaces.cw("Dialog","modalConfirmaAlteracaoSenhaVar",{id:"modalConfirmaAlteracaoSenha",draggable:false,resizable:false,modal:true,appendTo:"@(body)",dynamic:true});});
+// Mirrored from planning-giassi.neogrid.com/planning/login.xhtml by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 21 Aug 2018 01:54:22 GMT
+#modalSenhaExpirada.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-shadow.ui-hidden-container.NG_FieldSet(style='background-color:#f2f2f2 !important;')
+  .ui-dialog-titlebar.ui-widget-header.ui-helper-clearfix.ui-corner-top
+    span#modalSenhaExpirada_title.ui-dialog-title
+  .ui-dialog-content.ui-widget-content
+script#modalSenhaExpirada_s(type='text/javascript').
+  $(function(){PrimeFaces.cw("Dialog","modalSenhaExpiradaVar",{id:"modalSenhaExpirada",draggable:false,resizable:false,modal:true,appendTo:"@(body)",dynamic:true,onHide:function(){document.body.style.overflowY='auto'; },onShow:function(){document.body.style.overflowY='hidden'; }});});
+#modalSessionExpired.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-shadow.ui-hidden-container(style='background-color:#00263C !important;border-radius:50px;')
+  .ui-dialog-titlebar.ui-widget-header.ui-helper-clearfix.ui-corner-top
+    span#modalSessionExpired_title.ui-dialog-title
+  .ui-dialog-content.ui-widget-content
+    #pnlSessionExpired.ui-panel.ui-widget.ui-widget-content.ui-corner-all(style='width:400px;height:50px;text-align:center;' data-widget='widget_pnlSessionExpired')
+      #pnlSessionExpired_content.ui-panel-content.ui-widget-content
+        span#msgSessionExpired.texto(style='position:relative;top:8px;font-size:14px !important;')
+          | Sua sess&atilde;o foi encerrada por falta de uso.
+          br
+          | Fa&ccedil;a o 
+          a(href='javascript:void(0);' onclick="PF('modalSessionExpiredVar').hide();" style='font-weight: bold; color: #FF0000; text-decoration: underline;') login
+          |  para ativar sua sess&atilde;o novamente.
+    script#pnlSessionExpired_s(type='text/javascript').
+      PrimeFaces.cw("Panel","widget_pnlSessionExpired",{id:"pnlSessionExpired"});
+script#modalSessionExpired_s(type='text/javascript').
+  $(function(){PrimeFaces.cw("Dialog","modalSessionExpiredVar",{id:"modalSessionExpired",draggable:false,resizable:false,modal:true,closeOnEscape:true});});
