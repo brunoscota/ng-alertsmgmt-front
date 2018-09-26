@@ -10,59 +10,67 @@ block append content
               .card-body
                 form
                   .row
-                    .col-md-5
-                      .form-group
-                        label.bmd-label-floating Company (disabled)
-                        input.form-control(type='text' disabled='')
-                    .col-md-4
+                    .col-md-6
                       .form-group
                         label.bmd-label-floating Host
                         input.form-control(type='text')
-                    .col-md-4
+                    .col-md-6
                       .form-group
                         label.bmd-label-floating Serviço
-                        input.form-control(type='email')
+                        input.form-control(type='text')
                   .row
                     .col-md-6
                       .form-group
-                        label.bmd-label-floating Célula
-                        .dropdown-menu.field(for='dropdown-menu' data-value='')
-                          span Category
-                          #dropdown-menu.psuedo_select(name='dropdown-menu')
-                            span.selected
-                            ul#dropdown-menu.options
-                              li.option(data-value='opt_1') Option 1
-                              li.option(data-value='opt_2') Option 2
+                        label(for='exampleFormControlSelect1') Componente
+                        select#exampleFormControlSelect1.form-control
+                          option CÉLULA - Integração e Finaceiro
+                          option CÉLULA - RIDI
+                          option CÉLULA - Planejamento
+                          option CÉLULA - Fiscal
+                          option GEO
                     .col-md-6
                       .form-group
-                        label.bmd-label-floating Last Name
-                        input.form-control(type='text')
+                        label.bmd-label-floating Prioridade
+                        select#exampleFormControlSelect1.form-control
+                          option Blocante
+                          option Alta
+                          option Média
+                          option Baixa
+                          option Trivial
+                  .row
+                    .col-md-6
+                      .form-group
+                        label.bmd-label-floating Ambiente
+                        select#exampleFormControlSelect1.form-control
+                          option Blocante
+                          option Alta
+                          option Média
+                          option Baixa
+                          option Trivial
+                    .col-md-6
+                      .form-group
+                        label.bmd-label-floating DataCenter
+                        select#exampleFormControlSelect1.form-control
+                          option BR DC Equinix RJ2
+                          option BR DC Sercompe
+                          option BR DC Equinix SP2
+                          option CLOUD DC Amazon
+                          option CLOUD DC Azure
+                          option US DC Equinix
+                          option US DC CenturyLink Savvis                          
                   .row
                     .col-md-12
                       .form-group
-                        label.bmd-label-floating Adress
-                        input.form-control(type='text')
+                        label.bmd-label-floating Link da Documentação
+                        input.form-control(type='url')
                   .row
-                    .col-md-4
-                      .form-group
-                        label.bmd-label-floating City
-                        input.form-control(type='text')
-                    .col-md-4
-                      .form-group
-                        label.bmd-label-floating Country
-                        input.form-control(type='text')
-                    .col-md-4
-                      .form-group
-                        label.bmd-label-floating Postal Code
-                        input.form-control(type='text')
-                  .row
-                    .col-md-12
-                      .form-group
-                        label About Me
-                        .form-group
-                          label.bmd-label-floating  Lamborghini Mercy, Your chick she so thirsty, I&apos;m in that two seat Lambo.
-                          textarea.form-control(rows='5')
-                  button.btn.btn-primary.pull-right(type='submit') Update Profile
+                  //-   .col-md-8
+                  //-     .form-group
+                  //-       label About Me
+                  //-       .form-group
+                  //-         label.bmd-label-floating  Lamborghini Mercy, Your chick she so thirsty, I&apos;m in that two seat Lambo.
+                  //-         textarea.form-control(rows='5')
+                  button.btn.btn-primary.btn-success.pull-right(type='submit') Enviar
                   .clearfix
           .col-md-4
             .card.card-profile
