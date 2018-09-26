@@ -15,7 +15,7 @@ head
   // CSS Just for demo purpose, don't include it in your project
   link(href='../assets/demo/demo.css' rel='stylesheet')
 .wrapper
-  .sidebar(data-color='danger' data-background-color='white' data-image='../assets/img/sidebar-1.jpg')
+  .sidebar(data-color='purple' data-background-color='white' data-image='../assets/img/sidebar-1.jpg')
     //
       Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
       Tip 2: you can also add an image using data-image tag
@@ -24,28 +24,24 @@ head
         | Creative Tim
     .sidebar-wrapper
       ul.nav
-        li.nav-item.active
-          a.nav-link(href='/')
+        li.nav-item
+          a.nav-link(href='./dashboard.html')
             i.material-icons dashboard
             p Dashboard
         li.nav-item
-          a.nav-link(href='/users')
+          a.nav-link(href='./user.html')
             i.material-icons person
             p User Profile
         li.nav-item
-          a.nav-link(href='/cadastro')
-            i.material-icons person
-            p Classificar novo Monitor            
-        li.nav-item
-          a.nav-link(href='/tables')
+          a.nav-link(href='./tables.html')
             i.material-icons content_paste
             p Table List
-        li.nav-item
-          a.nav-link(href='/typo')
+        li.nav-item.active
+          a.nav-link(href='./typography.html')
             i.material-icons library_books
             p Typography
         li.nav-item
-          a.nav-link(href='/icons')
+          a.nav-link(href='./icons.html')
             i.material-icons bubble_chart
             p Icons
         li.nav-item
@@ -53,7 +49,7 @@ head
             i.material-icons location_ons
             p Maps
         li.nav-item
-          a.nav-link(href='/notifications')
+          a.nav-link(href='./notifications.html')
             i.material-icons notifications
             p Notifications
         //
@@ -68,7 +64,7 @@ head
     nav.navbar.navbar-expand-lg.navbar-transparent.navbar-absolute.fixed-top
       .container-fluid
         .navbar-wrapper
-          a.navbar-brand(href='#pablo') Dashboard
+          a.navbar-brand(href='#pablo') Typography
         button.navbar-toggler(type='button' data-toggle='collapse' aria-controls='navigation-index' aria-expanded='false' aria-label='Toggle navigation')
           span.sr-only Toggle navigation
           span.navbar-toggler-icon.icon-bar
@@ -106,7 +102,81 @@ head
                   | Account
     // End Navbar
     .content
-      block content
+      .container-fluid
+        .card
+          .card-header.card-header-primary
+            h4.card-title Material Dashboard Heading
+            p.card-category Created using Roboto Font Family
+          .card-body
+            #typography
+              .card-title
+                h2 Typography
+              .row
+                .tim-typo
+                  h1
+                    span.tim-note Header 1
+                    | The Life of Material Dashboard
+                .tim-typo
+                  h2
+                    span.tim-note Header 2
+                    | The Life of Material Dashboard
+                .tim-typo
+                  h3
+                    span.tim-note Header 3
+                    | The Life of Material Dashboard
+                .tim-typo
+                  h4
+                    span.tim-note Header 4
+                    | The Life of Material Dashboard
+                .tim-typo
+                  h5
+                    span.tim-note Header 5
+                    | The Life of Material Dashboard
+                .tim-typo
+                  h6
+                    span.tim-note Header 6
+                    | The Life of Material Dashboard
+                .tim-typo
+                  p
+                    span.tim-note Paragraph
+                    |                       I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that&rsquo;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.
+                .tim-typo
+                  span.tim-note Quote
+                  blockquote.blockquote
+                    p
+                      | I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that&rsquo;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.
+                    small
+                      | Kanye West, Musician
+                .tim-typo
+                  span.tim-note Muted Text
+                  p.text-muted
+                    | I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...
+                .tim-typo
+                  span.tim-note Primary Text
+                  p.text-primary
+                    | I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...
+                .tim-typo
+                  span.tim-note Info Text
+                  p.text-info
+                    | I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...
+                .tim-typo
+                  span.tim-note Success Text
+                  p.text-success
+                    | I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...
+                .tim-typo
+                  span.tim-note Warning Text
+                  p.text-warning
+                    | I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...
+                .tim-typo
+                  span.tim-note Danger Text
+                  p.text-danger
+                    | I will be the leader of a company that ends up being worth billions of dollars, because I got the answers...
+                .tim-typo
+                  h2
+                    span.tim-note Small Tag
+                    |                       Header with small subtitle
+                    br
+                    small Use &quot;small&quot; tag for the headers
     footer.footer
       .container-fluid
         nav.float-left
@@ -147,8 +217,3 @@ script(src='../assets/js/plugins/bootstrap-notify.js')
 script(src='../assets/js/material-dashboard.min.js?v=2.1.0' type='text/javascript')
 // Material Dashboard DEMO methods, don't include it in your project!
 script(src='../assets/demo/demo.js')
-script.
-  $(document).ready(function() {
-  // Javascript method's body can be found in assets/js/demos.js
-  md.initDashboardPageCharts();
-  });

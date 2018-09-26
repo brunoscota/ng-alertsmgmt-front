@@ -1,0 +1,77 @@
+extends layout
+block append content
+      .container-fluid
+        .row
+          .col-md-8
+            .card
+              .card-header.card-header-primary
+                h4.card-title Catálogo de Opmon x Jira
+                p.card-category Classificador de issues
+              .card-body
+                form
+                  .row
+                    .col-md-5
+                      .form-group
+                        label.bmd-label-floating Company (disabled)
+                        input.form-control(type='text' disabled='')
+                    .col-md-4
+                      .form-group
+                        label.bmd-label-floating Host
+                        input.form-control(type='text')
+                    .col-md-4
+                      .form-group
+                        label.bmd-label-floating Serviço
+                        input.form-control(type='email')
+                  .row
+                    .col-md-6
+                      .form-group
+                        label.bmd-label-floating Célula
+                        .dropdown-menu.field(for='dropdown-menu' data-value='')
+                          span Category
+                          #dropdown-menu.psuedo_select(name='dropdown-menu')
+                            span.selected
+                            ul#dropdown-menu.options
+                              li.option(data-value='opt_1') Option 1
+                              li.option(data-value='opt_2') Option 2
+                    .col-md-6
+                      .form-group
+                        label.bmd-label-floating Last Name
+                        input.form-control(type='text')
+                  .row
+                    .col-md-12
+                      .form-group
+                        label.bmd-label-floating Adress
+                        input.form-control(type='text')
+                  .row
+                    .col-md-4
+                      .form-group
+                        label.bmd-label-floating City
+                        input.form-control(type='text')
+                    .col-md-4
+                      .form-group
+                        label.bmd-label-floating Country
+                        input.form-control(type='text')
+                    .col-md-4
+                      .form-group
+                        label.bmd-label-floating Postal Code
+                        input.form-control(type='text')
+                  .row
+                    .col-md-12
+                      .form-group
+                        label About Me
+                        .form-group
+                          label.bmd-label-floating  Lamborghini Mercy, Your chick she so thirsty, I&apos;m in that two seat Lambo.
+                          textarea.form-control(rows='5')
+                  button.btn.btn-primary.pull-right(type='submit') Update Profile
+                  .clearfix
+          .col-md-4
+            .card.card-profile
+              .card-avatar
+                a(href='#pablo')
+                  img.img(src='../assets/img/faces/marc.jpg')
+              .card-body
+                h6.card-category.text-gray CEO / Co-Founder
+                h4.card-title Alec Thompson
+                p.card-description
+                  | Don&apos;t be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens&rsquo; bed design but the back is...
+                a.btn.btn-primary.btn-round(href='#pablo') Follow
