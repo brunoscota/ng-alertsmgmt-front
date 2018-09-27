@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
 //const db = require('../models');
-const Window = require('window'); 
-const window = new Window();
-var $ = require('jquery')(window);
-var dt = require('datatables.net-bs4')(window, $ );
+//const Window = require('window'); 
+//const window = new Window();
+//var $ = require('jquery')(window);
+//var dt = require('datatables.net-bs4')(window, $ );
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
