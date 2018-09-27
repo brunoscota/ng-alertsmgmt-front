@@ -8,7 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var tablesRouter = require('./routes/tables');
 var typoRouter = require('./routes/typo');
-var cadastroRouter = require('./routes/cadastro');
+var catalogRouter = require('./routes/catalog');
 var iconsRouter = require('./routes/icons');
 var notificationsRouter = require('./routes/notifications');
 
@@ -29,7 +29,7 @@ app.use('/tables', tablesRouter);
 app.use('/users', usersRouter);
 app.use('/typo', typoRouter);
 app.use('/icons', iconsRouter);
-app.use('/cadastro', cadastroRouter);
+app.use('/catalog', catalogRouter);
 app.use('/notifications', notificationsRouter);
 
 // catch 404 and forward to error handler

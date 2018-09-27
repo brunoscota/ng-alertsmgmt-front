@@ -11,9 +11,10 @@ head
   link(rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons')
   link(rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css')
   // CSS Files
+  link(rel='stylesheet' type='text/css' href='../assets/css/jquery.dataTables.css')
   link(href='../assets/css/material-dashboard.css?v=2.1.0' rel='stylesheet')
-  // CSS Just for demo purpose, don't include it in your project
-  link(href='../assets/demo/demo.css' rel='stylesheet')
+  //- link(rel='stylesheet' type='text/css' href='https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css')
+  //- link(rel='stylesheet' type='text/css' href='https://cdn.datatables.net/1.10.19/css/dataTables.material.min.css')
 .wrapper
   .sidebar(data-color='danger' data-background-color='white' data-image='../assets/img/sidebar-10.jpg')
     //
@@ -33,9 +34,9 @@ head
             i.material-icons person
             p User Profile
         li.nav-item.active
-          a.nav-link(href='/cadastro')
+          a.nav-link(href='/catalog')
             i.material-icons person
-            p Classificar novo Monitor            
+            p Catalog          
         li.nav-item
           a.nav-link(href='/tables')
             i.material-icons content_paste
@@ -108,8 +109,14 @@ head
     .content
       .container-fluid
         .row
-          .col-md-2
           .col-md-8
+            .card
+              .card-header.card-header-primary
+                h4.card-title Catalog
+                p.card-category Issue classification
+              .card-body
+                table#example.display(width='100%')            
+          .col-md-2
             .card
               .card-header.card-header-primary
                 h4.card-title Catálogo de Opmon x Jira
@@ -121,7 +128,7 @@ head
                   .modal-dialog.modal-lg
                     .modal-content
                       .modal-header
-                        h4#exampleModalLabel.modal-title Adicionar nova classificação
+                        h4#exampleModalLabel.modal-title Add a new entry to catalog
                       .container-fluid
                         //- .card
                         //-   .card-header.card-header-primary
@@ -176,8 +183,8 @@ head
                                   option BR DC Equinix SP2
                                   option CLOUD DC Amazon
                                   option CLOUD DC Azure
-                                  option US DC Equinix
-                                  option US DC CenturyLink Savvis                          
+                                  option US DC Equinix 
+                                  option US DC CenturyLink Savvis                           
                           .row
                             .col-md-12
                               .form-group
@@ -207,61 +214,16 @@ script(src='../assets/js/plugins/chartist.min.js')
 script(src='../assets/js/plugins/bootstrap-notify.js')
 // Control Center for Material Dashboard: parallax effects, scripts for the example pages etc
 script(src='../assets/js/material-dashboard.min.js?v=2.1.0' type='text/javascript')
-// Material Dashboard DEMO methods, don't include it in your project!
-script(src='../assets/demo/demo.js')
-script.
-  $(document).ready(function() {
-  // Javascript method's body can be found in assets/js/demos.js
-  md.initDashboardPageCharts();
-  });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//- // Material Dashboard DEMO methods, don't include it in your project! 
+//- script(src='../assets/demo/demo.js')
+//- script.
+//-   $(document).ready(function() {
+//-   // Javascript method's body can be found in assets/js/demos.js
+//-   md.initDashboardPageCharts();
+//-   });
+//DataTable
+script(type='text/javascript' charset='utf8' src='../assets/demo/jquery.dataTables.js')
+script(src='../assets/demo/fill_dataTable.js')
+//- script(type='text/javascript' charset='utf8' src='https://code.jquery.com/jquery-3.3.1.js')
+//- script(type='text/javascript' charset='utf8' src='https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')
+//- script(type='text/javascript' charset='utf8' src='https://cdn.datatables.net/1.10.19/js/dataTables.material.min.js')
