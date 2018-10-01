@@ -123,7 +123,7 @@ head
                 p.card-category 
               .card-body
                 // Large modal
-                button.btn.btn-primary(type='button' data-toggle='modal' data-target='.bd-example-modal-lg') New Rule
+                button.btn.btn-success(type='button' data-toggle='modal' data-target='.bd-example-modal-lg') New Rule
                 .modal.fade.bd-example-modal-lg(tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel' aria-hidden='true')
                   .modal-dialog.modal-lg
                     .modal-content
@@ -138,16 +138,16 @@ head
                           .row
                             .col-md-6
                               .form-group
-                                label.bmd-label-floating Host
+                                label.bmd-label-floating Host*
                                 input#input-geo-host.form-control(type='text')
                             .col-md-6
                               .form-group
-                                label.bmd-label-floating Service
+                                label.bmd-label-floating Service*
                                 input#input-geo-service.form-control(type='text')
                           .row
                             .col-md-6
                               .form-group
-                                label(for='component') Component
+                                label(for='component') Component*
                                 select#select-geo-component.form-control
                                   option CÉLULA - Integração e Finaceiro
                                   option CÉLULA - RIDI
@@ -156,7 +156,7 @@ head
                                   option GEO
                             .col-md-6
                               .form-group
-                                label(for='priority') Priority
+                                label(for='priority') Priority*
                                 select#select-geo-priority.form-control
                                   option Blocante
                                   option Alta
@@ -166,7 +166,7 @@ head
                           .row
                             .col-md-6
                               .form-group
-                                label(for='environment') Environment
+                                label(for='environment') Environment*
                                 select#select-geo-environment.form-control
                                   option Produção
                                   option Homologação
@@ -176,7 +176,7 @@ head
                                   option Testes
                             .col-md-6
                               .form-group
-                                label(for='datacenter') DataCenter
+                                label(for='datacenter') DataCenter*
                                 select#select-geo-datacenter.form-control
                                   option BR DC Equinix RJ2
                                   option BR DC Sercompe
@@ -188,11 +188,11 @@ head
                           .row
                             .col-md-12
                               .form-group
-                                label.bmd-label-floating Documentation URL
+                                label.bmd-label-floating Documentation URL*
                                 input#input-geo-url.form-control(type='url')
                           .row
-                          button#btn-geo-send.btn.btn-primary.btn-success.pull-right(type='submit') Save
-                          button.btn.btn-primary.btn-danger.pull-right(type='submit') Cancel
+                          button#btn-geo-send.btn.btn-success.pull-right(type='submit') Save
+                          button.btn.btn-warning.pull-right(type='reset') Clear
                           .clearfix                          
     footer.footer
 // Core JS Files
@@ -202,8 +202,6 @@ script(src='../js/core/bootstrap-material-design.min.js' type='text/javascript')
 script(src='../js/plugins/perfect-scrollbar.jquery.min.js')
 
 script(src='../js/submit-rule-action.js')
-// Google Maps Plugin
-script(src='https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE')
 // Chartist JS
 script(src='../js/plugins/chartist.min.js')
 // Notifications Plugin

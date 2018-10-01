@@ -1,9 +1,10 @@
 {
   "development": {
-    "dialect": "sqlite",
-    "storage": "db/hello_world.sqlite",
-    "operatorsAliases": false,
-    "logging": false
+    "username": "ng-alertsmgmt",
+    "password": "neo@123456",
+    "database": "ng-alertsmgmt",
+    "host": "127.0.0.1",
+    "dialect": "mssql"
   },
   "test": {
     "username": "root",
@@ -20,5 +21,3 @@
     "dialect": "mysql"
   }
 }
-
-
