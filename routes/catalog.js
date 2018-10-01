@@ -1,6 +1,7 @@
 var express = require('express');
 const db = require('../models');
 var router = express.Router();
+var _ = require('lodash');
 
 /* GET users listing. */
 router.get('/', function (req, res, next) {
@@ -45,11 +46,8 @@ router.get('/', function (req, res, next) {
   //   ["Unity Butler", "Marketing Designer", "San Francisco", "5384", "2009/12/09", "$85,675"]
   // ];
 
-  res.render('catalog', {
-    title: 'Main Catalog', dataSet
-  });
-
-
+  res.render('catalog', {title: 'Main Catalog'});
+ 
 
 });
 
@@ -72,6 +70,16 @@ router.post('/insertdata', async function (req, res, next){
   }, {});
 
   //res.send(req.body);
+});
+
+
+router.get('/getdata', async function (req, res, next){
+
+  dataSet = await db.cataloggeo.findAll({raw : true}).then(function(results) {
+    return _.map(results, function(result) { return result.host; })
+  });
+  console.log(dataSet);
+
 });
 
 module.exports = router;
