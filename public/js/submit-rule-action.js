@@ -20,7 +20,6 @@ $(document).ready(function () {
     });
 
     function geoPost(formData) {
-
         // DO POST
         $.ajax({
             type: "POST",
@@ -28,14 +27,12 @@ $(document).ready(function () {
             url: window.location + "/insertdata",
             data: JSON.stringify(formData),
             dataType: 'json',
-            success: function (data) {
-                // $("#postResultDiv").html("<p>" +
-                //     "Post Successfully! <br>" +
-                //     "--->" + JSON.stringify(data) + "</p>");
+            success: function () {
+                alert("Rule inserted Successfully!!")
             },
             error: function (e) {
                 alert("Error!")
-                console.log("ERROR: ", e);
+                console.log("ERROR: ", formData);
             }
         });
 
@@ -44,16 +41,29 @@ $(document).ready(function () {
     }
 
     function resetData() {
-        $("#input-geo-service").val(""),
-            $("#input-geo-host").val(""),
-            $("#select-geo-component option:selected").val(""),
-            $("#select-geo-priority option:selected").val("")
+        $("#btn-geo-reset").trigger(click);
+        // $("#input-geo-service").val(""),
+        // $("#input-geo-host").val(""),
+        // $("#select-geo-component option:selected").val("Choose..."),
+        // $("#select-geo-priority option:selected").val("Choose..."),
+        // $("#select-geo-environment option:selected").val("Choose..."),
+        // $("#select-geo-datacenter option:selected").val("Choose...")
     }
 
-    // Name and Email validation Function.
+    // Validation Function.
     function validation(formData) {
-        if (formData.host.toString() === "" || formData.service.toString() === "") {
-            alert("Please fill all required fields...!!!!!!" + formData.host.toString() + " " + formData.service.toString());
+        if (formData.host.toString() === "" 
+        || formData.service.toString() === "" 
+        || formData.component.toString() === "" 
+        || formData.priority.toString() === "" 
+        || formData.environment.toString() === "" 
+        || formData.url.toString() === "" 
+        || formData.datacenter.toString() === ""
+        || formData.datacenter.toString() === "Choose..."
+        || formData.environment.toString() === "Choose..."
+        || formData.priority.toString() === "Choose..."
+        || formData.component.toString() === "Choose...") {
+            alert("Please fill all required fields...!!!!!!");
             return false;
         } else {
             return true;
@@ -61,27 +71,4 @@ $(document).ready(function () {
     }
 
 
-
-
-})
-
-
-
-
-// $("#btn-geo-send").click(function (e) {
-
-//     e.preventDefault();
-//     $.ajax({
-//         type: "GET",
-//         //data: JSON.stringify(data),
-//         //contentType: 'application/json',
-//         //url: 'http://localhost:3000/catalog/insertdata',
-//         success: function (result) {
-//             alert(service + " " + host + " " + component + " " + priority);
-//             $("#btn-geo-send").submit();
-//         },
-//         error: function () {
-//             alert("Server error. Could not possible retrieve the data: " + e.val());
-//         }
-//     });
-// });
+});

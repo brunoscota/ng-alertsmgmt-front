@@ -115,7 +115,7 @@ head
                 h4.card-title Rules
                 p.card-category Issues classification
               .card-body
-                table#example.display(width='100%')            
+                table#geoTable.display(width='100%')            
           .col-md-2
             .card
               .card-header.card-header-primary
@@ -149,6 +149,7 @@ head
                               .form-group
                                 label(for='component') Component*
                                 select#select-geo-component.form-control
+                                  option(selected='') Choose...
                                   option CÉLULA - Integração e Finaceiro
                                   option CÉLULA - RIDI
                                   option CÉLULA - Planejamento
@@ -158,6 +159,7 @@ head
                               .form-group
                                 label(for='priority') Priority*
                                 select#select-geo-priority.form-control
+                                  option(selected='') Choose...
                                   option Blocante
                                   option Alta
                                   option Média
@@ -168,6 +170,7 @@ head
                               .form-group
                                 label(for='environment') Environment*
                                 select#select-geo-environment.form-control
+                                  option(selected='') Choose...
                                   option Produção
                                   option Homologação
                                   option Desenvolvimento
@@ -178,9 +181,10 @@ head
                               .form-group
                                 label(for='datacenter') DataCenter*
                                 select#select-geo-datacenter.form-control
-                                  option BR DC Equinix RJ2
-                                  option BR DC Sercompe
+                                  option(selected='') Choose...
                                   option BR DC Equinix SP2
+                                  option BR DC Sercompe
+                                  option BR DC Equinix RJ2
                                   option CLOUD DC Amazon
                                   option CLOUD DC Azure
                                   option US DC Equinix 
@@ -192,7 +196,7 @@ head
                                 input#input-geo-url.form-control(type='url')
                           .row
                           button#btn-geo-send.btn.btn-success.pull-right(type='submit') Save
-                          button.btn.btn-warning.pull-right(type='reset') Clear
+                          button#btn-geo-reset.btn.btn-warning.pull-right(type='reset') Clear
                           .clearfix                          
     footer.footer
 // Core JS Files
