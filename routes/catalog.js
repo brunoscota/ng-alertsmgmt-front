@@ -15,26 +15,25 @@ router.get('/', function (req, res, next) {
 
 router.post('/insertdata', async function (req, res, next) {
 
-  var formData = req.body;
-  //console.log('body: ' + JSON.stringify(req.body));
-
-  return await db.cataloggeo.create({
-    host: formData.host.toString(),
-    service: formData.service.toString(),
-    component: formData.component.toString(),
-    priority: formData.priority.toString(),
-    environment: formData.environment.toString(),
-    datacenter: formData.datacenter.toString(),
-    url: formData.url.toString(),
-    createdAt: new Date(),
-    updatedAt: new Date()
-  }, {});
-
-  //res.send(req.body);
+  let formData = req.body;
+  let result = await db.cataloggeo.findOrCreate({
+    where: {
+      host: formData.host.toString(),
+      service: formData.service.toString()
+    },
+    defaults: {
+      component: formData.component.toString(),
+      priority: formData.priority.toString(),
+      environment: formData.environment.toString(),
+      datacenter: formData.datacenter.toString(),
+      url: formData.url.toString()
+    }
+  });
+  res.send(result);
 });
 
 
-router.get('/getdata', async function (req, res, next) {
+router.get('/getalldata', async function (req, res, next) {
 
   dataSet = await db.cataloggeo.findAll({
     raw: true
@@ -53,5 +52,23 @@ router.get('/getdata', async function (req, res, next) {
   });
   res.send(dataSet);
 });
+
+router.post('/destroydata', async function (req,res,next){
+  let formData = req.body;
+  let result = await db.cataloggeo.destroy({
+    where: {
+      host: formData.host.toString(),
+      service: formData.service.toString()      
+    }
+  });
+  console.log(result);
+  if (result === 1) {
+    res.send("removed");
+  }else{
+    res.send('notfound');
+  }
+  
+});
+
 
 module.exports = router;

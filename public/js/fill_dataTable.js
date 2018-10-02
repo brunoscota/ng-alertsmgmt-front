@@ -1,10 +1,6 @@
 $(document).ready(function () {
 
-    $.getJSON('/catalog/getdata', (data) => {
-        // var items = [];
-        // $.each( data, function( key, val ) {
-        //     items.push(key + "'>" + val + "</li>" );
-        //   });
+    $.getJSON('/catalog/getalldata', (data) => {
         $('#geoTable').DataTable({
             data: data,
             columns: [{

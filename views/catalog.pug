@@ -123,31 +123,28 @@ head
                 p.card-category 
               .card-body
                 // Large modal
-                button.btn.btn-success(type='button' data-toggle='modal' data-target='.bd-example-modal-lg') New Rule
-                .modal.fade.bd-example-modal-lg(tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel' aria-hidden='true')
+                button.btn.btn-primary.btn-block(type='button' data-toggle='modal' data-target='.bd-geoadd-modal-lg') New Rule
+                button.btn.btn-primary.btn-block(type='button' data-toggle='modal' data-target='.bd-georemove-modal-lg') Remove Rule
+                .modal.fade.bd-geoadd-modal-lg(tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel' aria-hidden='true')
                   .modal-dialog.modal-lg
                     .modal-content
                       .modal-header
                         h4#geoModal.modal-title Add a new entry to GEO Catalog
-                      .container-fluid
-                        //- .card
-                        //-   .card-header.card-header-primary
-                        //-     h8.card-title Adicionar nova classificação
-                        //-   .card-body                      
+                      .container-fluid                    
                         form
                           .row
                             .col-md-6
                               .form-group
-                                label.bmd-label-floating Host*
+                                label.bmd-label-floating Host *
                                 input#input-geo-host.form-control(type='text')
                             .col-md-6
                               .form-group
-                                label.bmd-label-floating Service*
+                                label.bmd-label-floating Service *
                                 input#input-geo-service.form-control(type='text')
                           .row
                             .col-md-6
                               .form-group
-                                label(for='component') Component*
+                                label(for='component') Component *
                                 select#select-geo-component.form-control
                                   option(selected='') Choose...
                                   option CÉLULA - Integração e Finaceiro
@@ -157,7 +154,7 @@ head
                                   option GEO
                             .col-md-6
                               .form-group
-                                label(for='priority') Priority*
+                                label(for='priority') Priority *
                                 select#select-geo-priority.form-control
                                   option(selected='') Choose...
                                   option Blocante
@@ -168,7 +165,7 @@ head
                           .row
                             .col-md-6
                               .form-group
-                                label(for='environment') Environment*
+                                label(for='environment') Environment *
                                 select#select-geo-environment.form-control
                                   option(selected='') Choose...
                                   option Produção
@@ -179,7 +176,7 @@ head
                                   option Testes
                             .col-md-6
                               .form-group
-                                label(for='datacenter') DataCenter*
+                                label(for='datacenter') DataCenter *
                                 select#select-geo-datacenter.form-control
                                   option(selected='') Choose...
                                   option BR DC Equinix SP2
@@ -192,12 +189,33 @@ head
                           .row
                             .col-md-12
                               .form-group
-                                label.bmd-label-floating Documentation URL*
+                                label.bmd-label-floating Documentation URL *
                                 input#input-geo-url.form-control(type='url')
                           .row
                           button#btn-geo-send.btn.btn-success.pull-right(type='submit') Save
                           button#btn-geo-reset.btn.btn-warning.pull-right(type='reset') Clear
                           .clearfix                          
+                .modal.fade.bd-georemove-modal-lg(tabindex='-1' role='dialog' aria-labelledby='myLargeModalLabel' aria-hidden='true')
+                  .modal-dialog.modal-lg
+                    .modal-content
+                      .modal-header
+                        h4#geoModal.modal-title Remove an entry from GEO Catalog
+                      .container-fluid
+                        form
+                          .row
+                            .col-md-6
+                              .form-group
+                                label.bmd-label-floating Host *
+                                input#input-geo-host-remove.form-control(type='text')
+                            .col-md-6
+                              .form-group
+                                label.bmd-label-floating Service *
+                                input#input-geo-service-remove.form-control(type='text')
+                          .row
+                          button#btn-geo-remove.btn.btn-danger.pull-right(type='submit') Remove
+                          button#btn-geo-remove-reset.btn.btn-warning.pull-right(type='reset') Clear
+                          .clearfix                          
+            
     footer.footer
 // Core JS Files
 script(src='../js/core/jquery.min.js' type='text/javascript')

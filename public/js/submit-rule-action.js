@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    // SUBMIT FORM
+    // START SUBMIT GEO INSERT FORM
     $("#btn-geo-send").click(function (event) {
         // PREPARE FORM DATA
         var formData = {
@@ -14,7 +14,7 @@ $(document).ready(function () {
         }
         // Prevent the form from submitting via the browser.
         event.preventDefault();
-        if (validation(formData)) {
+        if (geoSendValidation(formData)) {
             geoPost(formData);
         }
     });
@@ -27,31 +27,25 @@ $(document).ready(function () {
             url: window.location + "/insertdata",
             data: JSON.stringify(formData),
             dataType: 'json',
-            success: function () {
-                alert("Rule inserted Successfully!!")
+            success: function (result) {
+                if (result[1]){
+                    alert("Rule inserted Successfully!!");
+                }else{
+                    alert("!!! Attention: Rule Already Exists. Nothing to do here. !!!");
+                }                
             },
             error: function (e) {
                 alert("Error!")
-                console.log("ERROR: ", formData);
+                console.log("ERROR: Could not connect to database or post the data ", e);
             }
         });
 
         // Reset FormData after Posting
-        resetData();
-    }
-
-    function resetData() {
-        $("#btn-geo-reset").trigger(click);
-        // $("#input-geo-service").val(""),
-        // $("#input-geo-host").val(""),
-        // $("#select-geo-component option:selected").val("Choose..."),
-        // $("#select-geo-priority option:selected").val("Choose..."),
-        // $("#select-geo-environment option:selected").val("Choose..."),
-        // $("#select-geo-datacenter option:selected").val("Choose...")
+        resetData("#btn-geo-reset");
     }
 
     // Validation Function.
-    function validation(formData) {
+    function geoSendValidation(formData) {
         if (formData.host.toString() === "" 
         || formData.service.toString() === "" 
         || formData.component.toString() === "" 
@@ -69,6 +63,63 @@ $(document).ready(function () {
             return true;
         }
     }
+    // END SUBMIT GEO INSERT FORM
+
+    // START SUBMIT GEO REMOVE FORM
+
+    $("#btn-geo-remove").click(function (event) {
+        // PREPARE FORM DATA
+        var formData = {
+            service: $("#input-geo-service-remove").val(),
+            host: $("#input-geo-host-remove").val(),
+        }
+        // Prevent the form from submitting via the browser.
+        event.preventDefault();
+        if (geoRemoveValidation(formData)) {
+            geoRemove(formData);
+        }
+    });
+
+    function geoRemove(formData) {
+        // DO POST
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            url: window.location + "/destroydata",
+            data: JSON.stringify(formData),
+            dataType: 'json',
+            success: function (result) {
+                if (result === "removed"){
+                    alert("Rule removed successfully!!");           
+                } else{
+                    alert("Rule could not be found. Try again!!");           
+                }                
+            },
+            error: function (e) {
+                //alert("Error!")
+                console.log("ERROR: Could not connect to database or post the data ", e);
+            }
+        });
+
+        // Reset FormData after Posting
+        resetData("#btn-geo-remove-reset");
+    }
 
 
+    function geoRemoveValidation(formData) {
+        if (formData.host.toString() === "" 
+        || formData.service.toString() === "") {
+            alert("Please fill all required fields...!!!!!!");
+            return false;
+        } else {
+            return true;
+        }        
+    }
+    // END SUBMIT GEO REMOVE FORM
+
+    //GENERAL FUNCTIONS
+
+    function resetData(reset_btn) {
+        $(reset_btn).click();
+    }
 });
