@@ -4,9 +4,9 @@ var ActiveDirectory = require('activedirectory')
 module.exports = function (passport) {
 
   var ad = new ActiveDirectory({
-    url: '',
-    baseDN: '',
-    username: '',
+    url: 'ldap://',
+    baseDN: 'DC=,DC=',
+    username: '@',
     password: ''
   })
 
@@ -14,10 +14,18 @@ module.exports = function (passport) {
     integrated: false,
     ldap: ad
   }, function (profile, ad, done) {
-    ad.isUserMemberOf(profile._json.dn, 'Suporte a Sistemas', function (err, isMember) {
+    console.log(profile._json.sAMAccountName)
+    ad.isUserMemberOf(profile._json.sAMAccountName, 'WINTEL SA', function (err, isMember) {
       if (err) return done(err)
       return done(null, profile)
     })
   }))
+
+  passport.serializeUser((user, done) => {
+    done(null, user);
+  });
+  passport.deserializeUser((user, done) => {
+    done(null, user);
+  });
 
 }

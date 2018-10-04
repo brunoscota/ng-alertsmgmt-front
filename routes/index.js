@@ -1,29 +1,37 @@
-var express = require('express');
-var router = express.Router();
-var passport = require('passport');
-var initPassport = require('../passport/init');
-initPassport(passport);
-
-var opts = { failWithError: true }
-
+const express = require('express');
+const router = express.Router();
+const passport = require('passport');
+const requireLogin = require('../passport/requireLogin');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', requireLogin, function(req, res, next) {
   res.render('index', { title: 'Dashboard' });
 });
 
-router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'Login' });
+var opts = {
+  failWithError: true,
+  session: true
+}
+
+router.get('/login', (req, res) => {
+  res.render('login');
 });
 
-
-
-router.post('/login', passport.authenticate('ActiveDirectory', opts), function(req, res) {
-  res.render('login', { title: 'Login' });
-  res.json(req.user)
+router.post('/login', passport.authenticate('ActiveDirectory', opts), function (req, res) {
+  //console.log(req.user);
+  res.redirect('/')
 }, function (err) {
-  console.log(err);
-  //res.status(401).send('Not Authenticated')
+  res.status(401).send('Not Authenticated')
 })
+
+router.get('/current_user', (req, res) => {
+  res.send(req.user);
+});
+
+router.get('/logout', (req, res) => {
+  req.logout();
+  res.redirect('/');
+});
+
 
 module.exports = router;

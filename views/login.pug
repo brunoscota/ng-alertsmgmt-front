@@ -1,95 +1,47 @@
-//- doctype html
-//- head
-//-   meta(charset='utf-8')
-//-   meta(name='author' content='Kodinger')
-//-   meta(name='viewport' content='width=device-width,initial-scale=1')
-//-   title My Login Page
-//-   link(rel='stylesheet' type='text/css' href='../bootstrap/css/bootstrap.min.css')
-//-   link(rel='stylesheet' type='text/css' href='../css/my-login.css')
-//- section.h-100
-//-   .container.h-100
-//-     .row.justify-content-md-center.h-100
-//-       .card-wrapper
-//-         .brand
-//-           img(src='../images/logo.jpg' alt='logo')
-//-         .card.fat
-//-           .card-body
-//-             h4.card-title Login
-//-             form.my-login-validation(method='POST' novalidate='')
-//-               .form-group
-//-                 label(for='email') E-Mail Address
-//-                 input#email.form-control(type='email' name='email' value='' required='' autofocus='')
-//-                 .invalid-feedback
-//-                   | Email is invalid
-//-               .form-group
-//-                 label(for='password')
-//-                   | Password
-//-                   a.float-right(href='forgot.html')
-//-                     | Forgot Password?
-//-                 input#password.form-control(type='password' name='password' required='' data-eye='')
-//-                 .invalid-feedback
-//-                   | Password is required
-//-               .form-group
-//-                 .custom-checkbox.custom-control
-//-                   input#remember.custom-control-input(type='checkbox' name='remember')
-//-                   label.custom-control-label(for='remember') Remeber Me
-//-               .form-group.m-0
-//-                 button.btn.btn-primary.btn-block(type='submit')
-//-                   | Login
-//-               .mt-4.text-center
-//-                 | Don&apos;t have an account? 
-//-                 a(href='register.html') Create One
-//-         .footer
-//-           | Copyright &copy; 2017 &mdash; Your Company
-//- script(src='../js/jquery.min.js')
-//- script(src='../bootstrap/js/bootstrap.min.js')
-//- script(src='../js/core/my-login.js')
+// Mixins
+mixin input(type, label)
+  .input-container
+    input(type='#{type}' id='#{label}' required)
+    label(for='#{label}')=label
+    .bar
+mixin button(text)
+  .button-container
+    button
+      span=text
 
+// Pen Title
+.pen-title
+  h1 Material Login Form
+  span
+    | Pen <i class='fa fa-code'></i> by <a href='http://andytran.me'>Andy Tran</a>
+    
+.rerun
+  a(href='') Rerun Pen
+  
+.container
+  .card
+  .card
+    h1.title Login
+    form
+      +input('text', 'Username')
+      +input('password', 'Password')
+      +button('Go')
+      .footer
+        a(href='#') Forgot your password?
+  .card.alt
+    .toggle
+    h1.title Register
+      .close
+    form
+      +input('text', 'Username')
+      +input('password', 'Password')
+      +input('password', 'Repeat Password')
+      +button('Next')
 
-doctype html
-head
-  meta(charset='utf-8')
-  meta(name='author' content='Kodinger')
-  meta(name='viewport' content='width=device-width,initial-scale=1')
-  title My Login Page
-  link(rel='stylesheet' type='text/css' href='../bootstrap/css/bootstrap.min.css')
-  link(rel='stylesheet' type='text/css' href='../css/my-login.css')
-  script(type='text/javascript' src='https://gc.kis.v2.scr.kaspersky-labs.com/5D2B7E3F-BA3E-5E41-8E5C-E64084A9C307/main.js' charset='UTF-8')
-section.h-100
-  .container.h-100
-    .row.justify-content-md-center.h-100
-      .card-wrapper
-        .brand
-          img(src='../images/logo.jpg' alt='logo')
-        .card.fat
-          .card-body
-            h4.card-title Login
-            form.my-login-validation(method='POST' novalidate='')
-              .form-group
-                label(for='email') E-Mail Address
-                input#email.form-control(type='email' name='email' value='' required='' autofocus='')
-                .invalid-feedback
-                  | Email is invalid
-              .form-group
-                label(for='password')
-                  | Password
-                  a.float-right(href='forgot.html')
-                    | Forgot Password?
-                input#password.form-control(type='password' name='password' required='' data-eye='')
-                .invalid-feedback
-                  | Password is required
-              .form-group
-                .custom-checkbox.custom-control
-                  input#remember.custom-control-input(type='checkbox' name='remember')
-                  label.custom-control-label(for='remember') Remeber Me
-              .form-group.m-0
-                button.btn.btn-primary.btn-block(type='submit')
-                  | Login
-              .mt-4.text-center
-                | Don&apos;t have an account? 
-                a(href='register.html') Create One
-        .footer
-          | Copyright &copy; 2017 &mdash; Your Company
-script(src='../js/jquery.min.js')
-script(src='../bootstrap/js/bootstrap.min.js')
-script(src='../js/core/my-login.js')
+// Portfolio
+a#portfolio(href='http://andytran.me/' title='View my portfolio!')
+  i.fa.fa-link
+  
+// CodePen
+a#codepen(href='https://codepen.io/andytran/' title='Follow me!')
+  i.fa.fa-codepen

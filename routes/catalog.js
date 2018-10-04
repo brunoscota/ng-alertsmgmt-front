@@ -1,19 +1,19 @@
-var express = require('express');
+const express = require('express');
 const db = require('../models');
-var router = express.Router();
-var _ = require('lodash');
+const router = express.Router();
+const _ = require('lodash');
+const requireLogin = require('../passport/requireLogin');
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
+router.get('/', requireLogin, function (req, res, next) {
 
   res.render('catalog', {
     title: 'Main Catalog'
   });
 
-
 });
 
-router.post('/insertdata', async function (req, res, next) {
+router.post('/insertdata', requireLogin, async function (req, res, next) {
 
   let formData = req.body;
   let result = await db.cataloggeo.findOrCreate({
@@ -33,7 +33,7 @@ router.post('/insertdata', async function (req, res, next) {
 });
 
 
-router.get('/getalldata', async function (req, res, next) {
+router.get('/getalldata', requireLogin, async function (req, res, next) {
 
   dataSet = await db.cataloggeo.findAll({
     raw: true
@@ -53,7 +53,7 @@ router.get('/getalldata', async function (req, res, next) {
   res.send(dataSet);
 });
 
-router.post('/destroydata', async function (req,res,next){
+router.post('/destroydata', requireLogin, async function (req,res,next){
   let formData = req.body;
   let result = await db.cataloggeo.destroy({
     where: {

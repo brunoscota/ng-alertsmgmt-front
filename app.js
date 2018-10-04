@@ -1,22 +1,36 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var passport = require('passport');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const passport = require('passport');
+const cookieSession = require('cookie-session');
+const initPassport = require('./passport/init');
 
-// Initialize Passport
-var initPassport = require('./passport/init');
-initPassport(passport);
-
+//importing routes
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var catalogRouter = require('./routes/catalog');
 
 var app = express();
 
+app.use(bodyParser.json());
 
+// Cookie session configuration
+var expiryDate = new Date(Date.now() + 60 * 60 * 1000) // 1 hour
+app.use(
+  cookieSession({
+    name: 'userSession',
+    maxAge: expiryDate,
+    keys: ['as8d3jk2rf', 'sadjs7dlas'],
+  }),
+);
 
+//Initializing Passport Auth method
+initPassport(passport);
+app.use(passport.initialize());
+app.use(passport.session());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,6 +41,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
