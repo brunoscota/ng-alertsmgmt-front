@@ -6,7 +6,7 @@ module.exports = function (passport) {
   var ad = new ActiveDirectory({
     url: 'ldap://',
     baseDN: 'DC=,DC=',
-    username: '@',
+    username: 'bcarvalho@',
     password: ''
   })
 

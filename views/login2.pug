@@ -1,0 +1,26 @@
+link#bootstrap-css(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet')
+link#my-login-css(href='css/my-login.css' rel='stylesheet')
+script(src='js/login/bootstrap.min.js')
+script(src='js/login/jquery.min.js')
+// ---- Include the above in your HEAD tag --------
+script(src='js/login/jquery-2.1.0.min.js')
+#formWrapper
+  #form
+    .logo
+      h1.text-center.head The form
+    .form-item
+      p.formLabel Email
+      input#email.form-style(type='email' name='email' autocomplete='off')
+    .form-item
+      p.formLabel Password
+      input#password.form-style(type='password' name='password')
+      // <div class="pw-view"><i class="fa fa-eye"></i></div>
+      p
+        a(href='#')
+          small Forgot Password ?
+    .form-item
+      p.pull-left
+        a(href='#')
+          small Register
+      input.login.pull-right(type='submit' value='Log In')
+      .clear-fix

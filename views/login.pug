@@ -1,47 +1,39 @@
-// Mixins
-mixin input(type, label)
-  .input-container
-    input(type='#{type}' id='#{label}' required)
-    label(for='#{label}')=label
-    .bar
-mixin button(text)
-  .button-container
-    button
-      span=text
-
-// Pen Title
-.pen-title
-  h1 Material Login Form
-  span
-    | Pen <i class='fa fa-code'></i> by <a href='http://andytran.me'>Andy Tran</a>
-    
-.rerun
-  a(href='') Rerun Pen
-  
+link#bootstrap-css(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet')
+link#my-login-css(href='/css/my-login.css' rel='stylesheet')
+script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')
+script(src='js/core/jquery.min.js')
+script(src='js/core/my-login.js')
+// ---- Include the above in your HEAD tag --------
 .container
-  .card
-  .card
-    h1.title Login
-    form
-      +input('text', 'Username')
-      +input('password', 'Password')
-      +button('Go')
-      .footer
-        a(href='#') Forgot your password?
-  .card.alt
-    .toggle
-    h1.title Register
-      .close
-    form
-      +input('text', 'Username')
-      +input('password', 'Password')
-      +input('password', 'Repeat Password')
-      +button('Next')
-
-// Portfolio
-a#portfolio(href='http://andytran.me/' title='View my portfolio!')
-  i.fa.fa-link
-  
-// CodePen
-a#codepen(href='https://codepen.io/andytran/' title='Follow me!')
-  i.fa.fa-codepen
+  .row.text-center.mb-4
+    .col-md-10
+      .row.text-center.mb-4
+        .row.text-center.mb-4
+          .row.text-center.mb-4
+  .row.text-center
+    .col-md-6.offset-md-3
+      .card
+        .card-body
+          .login-img
+            img(src='images/logo.png')
+          .login-title
+            h4 Log In
+          .login-form.mt-4
+            form
+              .form-row
+                .form-group.col-md-12
+                  input#username.form-control(name='Username' placeholder='Username' type='text')
+                .form-group.col-md-12
+                  input#password.form-control(type='password' placeholder='Password')
+              .form-row
+                .form-group
+                  .form-check
+                    input#updatecheck1.form-check-input(type='checkbox' value='')
+                    label.form-check-label(for='updatecheck1')
+                      small
+                        | By submitting this form you agree to our 
+                        a(href='#') terms and conditions 
+              .form-row
+                button#btn-login-submit.btn.btn-danger.btn-block(type='button') Submit
+          .logi-forgot.text-right.mt-2
+            a(href='#') Reset Password 

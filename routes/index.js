@@ -4,13 +4,16 @@ const passport = require('passport');
 const requireLogin = require('../passport/requireLogin');
 
 /* GET home page. */
-router.get('/', requireLogin, function(req, res, next) {
-  res.render('index', { title: 'Dashboard' });
+router.get('/', requireLogin, function (req, res, next) {
+  res.render('index', {
+    title: 'Dashboard'
+  });
 });
 
 var opts = {
   failWithError: true,
-  session: true
+  session: true,
+  successRedirect: '/catalog'
 }
 
 router.get('/login', (req, res) => {
@@ -18,8 +21,6 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/login', passport.authenticate('ActiveDirectory', opts), function (req, res) {
-  //console.log(req.user);
-  res.redirect('/')
 }, function (err) {
   res.status(401).send('Not Authenticated')
 })
