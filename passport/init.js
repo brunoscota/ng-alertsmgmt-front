@@ -1,13 +1,15 @@
+require('dotenv').config()
+
 var ActiveDirectoryStrategy = require('passport-activedirectory');
 var ActiveDirectory = require('activedirectory')
 
 module.exports = function (passport) {
 
   var ad = new ActiveDirectory({
-    url: 'ldap://',
-    baseDN: 'DC=,DC=',
-    username: 'bcarvalho@',
-    password: ''
+    url: process.env.AD_URL,
+    baseDN: process.env.AD_BASEDN,
+    username: process.env.AD_USER,
+    password: process.env.AD_PASS
   })
 
   passport.use(new ActiveDirectoryStrategy({
