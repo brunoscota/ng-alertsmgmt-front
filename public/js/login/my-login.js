@@ -10,7 +10,11 @@ $(function () {
 		}
 		// Prevent the form from submitting via the browser.
 		event.preventDefault();
-		doLogin(formData)
+		if(document.getElementById("updatecheck1").checked){
+			doLogin(formData)
+		}else{
+			alert("You must agree with terms and conditions.")
+		}
 	});
 
 	function doLogin(formData) {
@@ -21,11 +25,16 @@ $(function () {
 			url: window.location + "/",
 			data: JSON.stringify(formData),
 			dataType: 'json',
-			success: function (result) {},
-			error: function (e) {
-				alert("Invalid Credentials")
-			}
+			statusCode: {
+				200: function(res) {
+					window.location.href = "/"
+				  alert( "page not found" );
+				}
+			  }
+		}).done(function () {
+			console.log("http request succeeded");
+			alert("login success");
 		});
-	}
+}
 
 });

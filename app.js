@@ -24,6 +24,7 @@ app.use(
     name: 'userSession',
     maxAge: expiryDate,
     keys: ['as8d3jk2rf', 'sadjs7dlas'],
+    unset: 'destroy'
   }),
 );
 

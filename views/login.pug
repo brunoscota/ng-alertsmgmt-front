@@ -1,8 +1,13 @@
 link#bootstrap-css(href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' rel='stylesheet')
 link#my-login-css(href='/css/my-login.css' rel='stylesheet')
 script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js')
+//link(href='../css/material-dashboard.css?v=2.1.0' rel='stylesheet')
+script(src='../js/core/bootstrap-material-design.min.js' type='text/javascript')
+script(src='../js/plugins/perfect-scrollbar.jquery.min.js')
+script(src='bootstrap/js/bootstrap.bundle.js')
+script(src='js/core/popper.min.js')
 script(src='js/core/jquery.min.js')
-script(src='js/core/my-login.js')
+script(src='js/login/my-login.js')
 // ---- Include the above in your HEAD tag --------
 .container
   .row.text-center.mb-4
@@ -32,8 +37,7 @@ script(src='js/core/my-login.js')
                     label.form-check-label(for='updatecheck1')
                       small
                         | By submitting this form you agree to our 
-                        a(href='#') terms and conditions 
+                        a(href='/terms') terms and conditions 
               .form-row
                 button#btn-login-submit.btn.btn-danger.btn-block(type='button') Submit
-          .logi-forgot.text-right.mt-2
-            a(href='#') Reset Password 
+              .form-row

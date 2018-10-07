@@ -97,11 +97,15 @@ head
                 a.dropdown-item(href='#') You&apos;re now friend with Andrew
                 a.dropdown-item(href='#') Another Notification
                 a.dropdown-item(href='#') Another One
-            li.nav-item
-              a.nav-link(href='#pablo')
+            li.nav-item.dropdown
+              a#navbarDropdownUser.nav-link(href='http://example.com' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
                 i.material-icons person
+                //span.notification 
                 p.d-lg-none.d-md-block
-                  | Account
+                  | User Actions
+              .dropdown-menu.dropdown-menu-right(aria-labelledby='navbarDropdownUser')
+                a.dropdown-item(href='/users') My Profile
+                a.dropdown-item(href='/logout') Logout
     // End Navbar
     .content
       block content
