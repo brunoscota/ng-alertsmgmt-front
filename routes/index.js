@@ -11,10 +11,9 @@ router.get('/', requireLogin, function (req, res, next) {
 });
 
 var opts = {
-  failWithError: false,
+  failWithError: true,
   successRedirect: '/',
   failureRedirect: '/login',
-  failureMessage: 'error'
 }
 
 router.get('/login', (req, res) => {
@@ -25,19 +24,15 @@ router.get('/login', (req, res) => {
   }
 });
 
-router.post('/login', passport.authenticate('ActiveDirectory', opts), function (req, res, error) {
-  // if (error) {
-  //   return res.status(500).json(error);
-  // }
-  // if (!res.user) {
-  //   return res.status(401).json(info.message);
-  // }
-  // return res.status(200);  
-
-  if (req.user) {
-    return res.redirect('/')      
+router.post('/login', passport.authenticate('ActiveDirectory', opts), function (req, res) {
+  if (!res.user) {
+    return res.status(401);
   }
-  next();
+  if (req.user) {
+    return res.redirect('/');
+  }
+  return res.status(200);
+//  next();
 })
 
 router.get('/current_user', (req, res) => {

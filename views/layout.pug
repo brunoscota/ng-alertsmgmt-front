@@ -30,43 +30,16 @@ head
           a.nav-link(href='/catalog')
             i.material-icons table_chart
             p Catalog             
-        li.nav-item
-          a.nav-link(href='/users')
-            i.material-icons person
-            p User Profile           
         //- li.nav-item
-        //-   a.nav-link(href='/tables')
-        //-     i.material-icons content_paste
-        //-     p Table List
-        //- li.nav-item
-        //-   a.nav-link(href='/typo')
-        //-     i.material-icons library_books
-        //-     p Typography
-        //- li.nav-item
-        //-   a.nav-link(href='/icons')
-        //-     i.material-icons bubble_chart
-        //-     p Icons
-        //- li.nav-item
-        //-   a.nav-link(href='./map.html')
-        //-     i.material-icons location_ons
-        //-     p Maps
-        //- li.nav-item
-        //-   a.nav-link(href='/notifications')
-        //-     i.material-icons notifications
-        //-     p Notifications
-        //
-          <li class="nav-item active-pro ">
-          <a class="nav-link" href="./upgrade.html">
-          <i class="material-icons">unarchive</i>
-          <p>Upgrade to PRO</p>
-          </a>
-          </li>
+        //-   a.nav-link(href='/users')
+        //-     i.material-icons person
+        //-     p User Profile           
   .main-panel
     // Navbar
     nav.navbar.navbar-expand-lg.navbar-transparent.navbar-absolute.fixed-top
       .container-fluid
         .navbar-wrapper
-          a.navbar-brand(href='#pablo') Dashboard
+          a.navbar-brand(href='/') Dashboard
         button.navbar-toggler(type='button' data-toggle='collapse' aria-controls='navigation-index' aria-expanded='false' aria-label='Toggle navigation')
           span.sr-only Toggle navigation
           span.navbar-toggler-icon.icon-bar
@@ -74,11 +47,11 @@ head
           span.navbar-toggler-icon.icon-bar
         .collapse.navbar-collapse.justify-content-end
           form.navbar-form
-            .input-group.no-border
-              input.form-control(type='text' value='' placeholder='Search...')
-              button.btn.btn-white.btn-round.btn-just-icon(type='submit')
-                i.material-icons search
-                .ripple-container
+            //- .input-group.no-border
+            //-   input.form-control(type='text' value='' placeholder='Search...')
+            //-   button.btn.btn-white.btn-round.btn-just-icon(type='submit')
+            //-     i.material-icons search
+            //-     .ripple-container
           ul.navbar-nav
             li.nav-item
               a.nav-link(href='#pablo')
@@ -98,7 +71,7 @@ head
                 a.dropdown-item(href='#') Another Notification
                 a.dropdown-item(href='#') Another One
             li.nav-item.dropdown
-              a#navbarDropdownUser.nav-link(href='http://example.com' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
+              a#navbarDropdownUser.nav-link(href='#' data-toggle='dropdown' aria-haspopup='true' aria-expanded='false')
                 i.material-icons person
                 //span.notification 
                 p.d-lg-none.d-md-block
@@ -110,19 +83,21 @@ head
     .content
       block content
     footer.footer
+
 // Core JS Files
 script(src='../js/core/jquery.min.js' type='text/javascript')
 script(src='../js/core/popper.min.js' type='text/javascript')
 script(src='../js/core/bootstrap-material-design.min.js' type='text/javascript')
 script(src='../js/plugins/perfect-scrollbar.jquery.min.js')
-// Google Maps Plugin
-script(src='https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE')
 // Chartist JS
 script(src='../js/plugins/chartist.min.js')
 // Notifications Plugin
 script(src='../js/plugins/bootstrap-notify.js')
 // Control Center for Material Dashboard: parallax effects, scripts for the example pages etc
 script(src='../js/material-dashboard.min.js?v=2.1.0' type='text/javascript')
+//- script(type='text/javascript' charset='utf8' src='https://code.jquery.com/jquery-3.3.1.js')
+//- script(type='text/javascript' charset='utf8' src='https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js')
+//- script(type='text/javascript' charset='utf8' src='https://cdn.datatables.net/1.10.19/js/dataTables.material.min.js')
 script.
   $(document).ready(function() {
   // Javascript method's body can be found in assets/js/demos.js

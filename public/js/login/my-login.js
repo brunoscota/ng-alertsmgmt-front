@@ -28,8 +28,14 @@ $(function () {
 			statusCode: {
 				200: function(res) {
 					window.location.href = "/"
-				  alert( "page not found" );
+				},
+				500: function(res){
+					alert( "An error occurred while contacting the AD. Please try again later.");
+				},
+				401: function(res){
+					alert( "Your account is not allowed to log in.");
 				}
+				
 			  }
 		}).done(function () {
 			console.log("http request succeeded");
