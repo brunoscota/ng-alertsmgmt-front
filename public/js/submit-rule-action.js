@@ -88,17 +88,17 @@ $(document).ready(function () {
             url: window.location + "/destroydata",
             data: JSON.stringify(formData),
             dataType: 'json',
-            success: function (result) {
-                if (result === "removed"){
-                    alert("Rule removed successfully!!");           
-                } else{
-                    alert("Rule could not be found. Try again!!");           
-                }                
+            statusCode: {
+				200: function(res) {
+					alert(JSON.parse(res.responseText).status);
+                },
+                404: function(res) {
+					alert(JSON.parse(res.responseText).status);
+                },
+                500: function(res) {
+					alert(JSON.parse(res.responseText).status);
+                },                 
             },
-            error: function (e) {
-                //alert("Error!")
-                console.log("ERROR: Could not connect to database or post the data ", e);
-            }
         });
 
         // Reset FormData after Posting

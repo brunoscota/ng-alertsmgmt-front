@@ -63,9 +63,17 @@ router.post('/destroydata', requireLogin, async function (req,res,next){
   });
   console.log(result);
   if (result === 1) {
-    res.send("removed");
-  }else{
-    res.send('notfound');
+    return res.status(200).json({
+      status: "rule removed"
+    });
+  } else if (result === 0){
+    return res.status(404).json({
+      status: "Rule not found in the database!"
+    });
+  } else{
+    return res.status(500).json({
+      status: "Error!"
+    });
   }
   
 });
