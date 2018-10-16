@@ -19,7 +19,6 @@ Features:
  - Validate URL form field
 
 Known Issues:
- - issue when db not found or not available.
 
 
 # Fixed
@@ -28,3 +27,4 @@ Known Issues:
 - Form labels not correspond actual label in JIra's form.
 - Sequelize deprecated messages.
 - Set a new Icon and favicon
+- issue when db not found or not available.
