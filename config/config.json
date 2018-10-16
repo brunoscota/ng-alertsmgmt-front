@@ -4,20 +4,30 @@
     "password": "neo@123456",
     "database": "ng-alertsmgmt",
     "host": "192.168.99.100",
-    "dialect": "mssql"
+    "dialect": "mssql",
+    "dialectOptions": {
+      "encrypt": true
+    },
+    "operatorsAliases": "Op"
   },
   "test": {
     "username": "root",
     "password": null,
     "database": "database_test",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mssql",
+    "dialectOptions": {
+      "encrypt": true
+    }    
   },
   "production": {
     "username": "root",
     "password": null,
     "database": "database_production",
     "host": "127.0.0.1",
-    "dialect": "mysql"
+    "dialect": "mysql",
+    "dialectOptions": {
+      "encrypt": true
+    }    
   }
 }

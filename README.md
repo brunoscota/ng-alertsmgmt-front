@@ -14,13 +14,17 @@ Using:
 
 # To Do
 
-- Features
+Features:
  - Create Logging feature. Sending to GrayLog
+ - Validate URL form field
 
-- Known Issues:
+Known Issues:
  - issue when db not found or not available.
 
 
-# Bug Fixed
+# Fixed
 
 - Images not found. Changed uppercase to lowercase (.JPG to .jpg).
+- Form labels not correspond actual label in JIra's form.
+- Sequelize deprecated messages.
+- Set a new Icon and favicon
