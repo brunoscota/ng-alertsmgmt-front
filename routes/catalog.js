@@ -3,6 +3,7 @@ const db = require('../models');
 const router = express.Router();
 const _ = require('lodash');
 const requireLogin = require('../passport/requireLogin');
+const winston = require('../config/winston');
 
 /* GET users listing. */
 router.get('/', requireLogin, function (req, res, next) {
@@ -49,8 +50,11 @@ router.get('/getalldata', requireLogin, async function (req, res, next) {
         "url": result.url
       }
     })
-  });
-  res.send(dataSet);
+  }).then((dataSet) =>{
+    res.send(dataSet);
+  }).catch(function (err) {
+    winston.error(`${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
+  }) 
 });
 
 router.post('/destroydata', requireLogin, async function (req,res,next){

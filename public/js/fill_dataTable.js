@@ -33,5 +33,7 @@ $(document).ready(function () {
                 }
             ]
         });
+    }).fail(function (){
+        alert( "Could not retrieve data from DB" );
     })
 });
