@@ -14,7 +14,7 @@ $(document).ready(function () {
         }
         // Prevent the form from submitting via the browser.
         event.preventDefault();
-        if (geoSendValidation(formData)) {
+        if (geoSendValidation(formData) && geoURLValidation(formData)){
             geoPost(formData);
         }
     });
@@ -60,6 +60,16 @@ $(document).ready(function () {
             alert("Please fill all required fields...!!!!!!");
             return false;
         } else {
+            return true;
+        }
+    }
+
+    function geoURLValidation(formData){
+        var urlReg = /((http(s)?(\:\/\/))+(www\.)?([\w\-\.\/])*(\.[a-zA-Z]{2,3}\/?))[^\s\b\n|]*[^.,;:\?\!\@\^\$ -]/g;
+        if(!urlReg.test(formData.url.toString())){
+            alert("URL must be typed correctly!!!!!! Exemple: https://wiki.neogrid.com");
+            return false;
+        }else{
             return true;
         }
     }

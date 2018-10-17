@@ -17,25 +17,32 @@ router.get('/', requireLogin, function (req, res, next) {
 router.post('/insertdata', requireLogin, async function (req, res, next) {
 
   let formData = req.body;
-  let result = await db.cataloggeo.findOrCreate({
-    where: {
-      host: formData.host.toString(),
-      service: formData.service.toString()
-    },
-    defaults: {
-      component: formData.component.toString(),
-      priority: formData.priority.toString(),
-      environment: formData.environment.toString(),
-      datacenter: formData.datacenter.toString(),
-      url: formData.url.toString()
-    }
-  });
-  res.send(result);
+  try {
+
+    let result = await db.cataloggeo.findOrCreate({
+      where: {
+        host: formData.host.toString(),
+        service: formData.service.toString()
+      },
+      defaults: {
+        component: formData.component.toString(),
+        priority: formData.priority.toString(),
+        environment: formData.environment.toString(),
+        datacenter: formData.datacenter.toString(),
+        url: formData.url.toString()
+      }
+    });
+    winston.info(`Rule Host:${req.body.host} / Service: ${req.body.service} was inserted by ${req.user.displayName} logged with IP:${req.ip}`);
+    res.send(result);
+  }catch(e){
+    winston.error(`Could not insert data into database`);
+  }
+
 });
 
 
 router.get('/getalldata', requireLogin, async function (req, res, next) {
-
+  winston.debug("GETTING ALL DATAFROM DB")
   dataSet = await db.cataloggeo.findAll({
     raw: true
   }).then(function (results) {
@@ -50,36 +57,38 @@ router.get('/getalldata', requireLogin, async function (req, res, next) {
         "url": result.url
       }
     })
-  }).then((dataSet) =>{
+  }).then((dataSet) => {
     res.send(dataSet);
   }).catch(function (err) {
     winston.error(`${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
-  }) 
+  })
 });
 
-router.post('/destroydata', requireLogin, async function (req,res,next){
+router.post('/destroydata', requireLogin, async function (req, res, next) {
   let formData = req.body;
   let result = await db.cataloggeo.destroy({
     where: {
       host: formData.host.toString(),
-      service: formData.service.toString()      
+      service: formData.service.toString()
     }
-  });
-  console.log(result);
+  })
   if (result === 1) {
+    winston.info(`Rule Host:${req.body.host} / Service: ${req.body.service} was removed by ${req.user.displayName} logged with IP:${req.ip}`);
     return res.status(200).json({
       status: "rule removed"
     });
-  } else if (result === 0){
+  } else if (result === 0) {
+    winston.error(`Rule not found in the database!`);
     return res.status(404).json({
       status: "Rule not found in the database!"
     });
-  } else{
+  } else {
+    winston.error(`Error while trying to delete a record from DB`);
     return res.status(500).json({
       status: "Error!"
     });
   }
-  
+
 });
 
 

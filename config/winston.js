@@ -4,25 +4,25 @@ const Log2gelf = require('winston-log2gelf');
 
 var options = {
     file: {
-        level: 'info',
+        level: process.env.FILE_LOGLEVEL,
         filename: `${appRoot}/logs/app.log`,
         handleExceptions: true,
         json: true,
         maxsize: 5242880, // 5MB
-        maxFiles: 5,
+        maxFiles: process.env.FILE_LOGMAXFILES,
         colorize: false,
     },
     console: {
-        level: 'debug',
+        level: process.env.CONSOLE_LOGLEVEL,
         handleExceptions: true,
         json: false,
         colorize: true,
     },
     gelfPro: {
-        level: 'debug',
-        host: '172.25.48.110',
-        port: 5142,
-        protocol: 'tcp'
+        level: process.env.GELFPRO_LOGLEVEL,
+        host: process.env.GELFPRO_IP,
+        port: process.env.GELFPRO_PORT,
+        protocol: process.env.GELFPRO_PROTOCOL
       }    
 };
 

@@ -26,21 +26,14 @@ $(function () {
 			data: JSON.stringify(formData),
 			dataType: 'json',
 			statusCode: {
-				200: function(res) {
+				200: function() {
 					window.location.href = "/"
 				},
-				500: function(res){
-					alert( "An error occurred while contacting the AD. Please try again later.");
+				500: function(res) {
+					alert("Login not permitted. Check your credentials and/or permissions");
 				},
-				401: function(res){
-					alert( "Your account is not allowed to log in.");
-				}
-				
-			  }
-		}).done(function () {
-			console.log("http request succeeded");
-			alert("login success");
-		});
+			}
+		})
 }
 
 });

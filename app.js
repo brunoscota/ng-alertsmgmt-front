@@ -38,7 +38,7 @@ app.use(passport.session());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
-app.use(morgan('combined', { stream: winston.stream }));
+//app.use(morgan('combined', { stream: winston.stream }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -64,7 +64,7 @@ app.use(function(err, req, res, next) {
   winston.error(`${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
 
   // render the error page
-  res.status(err.status || 500);
+  //res.status(err.status || 500);
   //res.render('error');
 });
 

@@ -2,6 +2,7 @@ require('dotenv').config()
 
 var ActiveDirectoryStrategy = require('passport-activedirectory');
 var ActiveDirectory = require('activedirectory')
+const winston = require('../config/winston');
 
 module.exports = function (passport) {
 
@@ -15,11 +16,16 @@ module.exports = function (passport) {
   passport.use(new ActiveDirectoryStrategy({
     integrated: false,
     ldap: ad
-  }, function (profile, ad, done) {
-    console.log(profile._json.sAMAccountName)
-    ad.isUserMemberOf(profile._json.sAMAccountName, 'WINTEL SA', function (err, isMember) {
-      if (err) return done(err)
-      return done(null, profile)
+  }, async function (profile, ad, done) {
+    await ad.isUserMemberOf(profile._json.sAMAccountName, process.env.AD_GROUP, function (err, isMember) {
+      if (err){
+        winston.error(`${profile._json.displayName} not allowed to login.`);
+        return done(err)
+      } else{
+        winston.info(`${profile._json.displayName} just logged in.`);
+        return done(null, profile)
+      }
+      
     })
   }))
 
