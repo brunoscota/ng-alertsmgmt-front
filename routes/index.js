@@ -6,9 +6,10 @@ const winston = require('../config/winston');
 
 /* GET home page. */
 router.get('/', requireLogin, function (req, res, next) {
-  res.render('catalog', {
-    title: 'Dashboard'
-  });
+  res.redirect("/catalog")
+  // res.render('catalog', {
+  //   title: 'Dashboard'
+  // });
 });
 
 var opts = {
